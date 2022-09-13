@@ -49,13 +49,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true)
         {
-            playerObject.AddForce(new Vector2(0.0f, jumpPower));
+            playerObject.AddForce(new Vector2(0.0f, 300.0f));
 
             //////////////////////////// DOUBLE JUMP MECHANIC ///////////////////////////
 
             if (Input.GetKeyDown(KeyCode.Space) && isOnGround == false)
             {
-                playerObject.AddForce(new Vector2(0.0f, jumpPower));
+                playerObject.AddForce(new Vector2(0.0f, 300.0f));
             }
         }
     }
