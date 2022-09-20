@@ -37,25 +37,31 @@ public class PlayerController : MonoBehaviour
 
         ////////////////////////////// BOOST SYSTEM //////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.LeftShift) && isOnGround == true)
+        Debug.Log(playerObject.velocity.magnitude);
+
+        if (Input.GetKey(KeyCode.LeftShift) && isOnGround == true && playerObject.velocity.magnitude > 0.01f)
         {
+            StaminaBar.Instance.UseStamina(1); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
+
             playerObject.AddForce(new Vector2(movementValueX * boost, playerObject.velocity.y));
         }
         
         ////////////////////////////////// JUMP SYSTEM ///////////////////////////////////
         
         //Check to see if the ground check is touching the ground
-        isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 1.0f, whatIsGround);
+        isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 0.01f, whatIsGround);
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true)
         {
+            StaminaBar.Instance.UseStamina(15); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
+
             playerObject.AddForce(new Vector2(0.0f, 300.0f));
 
             //////////////////////////// DOUBLE JUMP MECHANIC ///////////////////////////
 
             if (Input.GetKeyDown(KeyCode.Space) && isOnGround == false)
             {
-                playerObject.AddForce(new Vector2(0.0f, 300.0f));
+                playerObject.AddForce(new Vector2(200.0f, 300.0f));
             }
         }
     }
