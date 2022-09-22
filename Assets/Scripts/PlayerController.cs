@@ -29,15 +29,14 @@ public class PlayerController : MonoBehaviour
         //////////////////////////////// MOVEMENT SYSTEM //////////////////////////////////
 
         //Create a 'float' that will be equal to the playeres horizontal input
-        float movementValueX = Input.GetAxis("Horizontal");
+        //float movementValueX = Input.GetAxis("Horizontal"); ------ THIS IS PLAYER INPUT WE TAGGED IT SO THAT IT CAN ENDLESSLY RUN! -------
 
         //Change the X velocity of the Rigidbody2D to be equal to the movement value
+        float movementValueX = 1.0f;
 
         playerObject.velocity = new Vector2(movementValueX * speed, playerObject.velocity.y);
 
         ////////////////////////////// BOOST SYSTEM //////////////////////////////////////
-
-        Debug.Log(playerObject.velocity.magnitude);
 
         if (Input.GetKey(KeyCode.LeftShift) && isOnGround == true && playerObject.velocity.magnitude > 0.01f)
         {
