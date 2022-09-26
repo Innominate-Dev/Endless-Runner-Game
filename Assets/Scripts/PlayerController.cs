@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject groundChecker;
     public LayerMask whatIsGround;
-
+    
+    public Slider staminaBar;
     private float speed = 3.0f;
     private float boost = 6.0f;
     public float jumpPower = 8000.0f;
@@ -37,9 +39,9 @@ public class PlayerController : MonoBehaviour
 
         ////////////////////////////// BOOST SYSTEM //////////////////////////////////////
 
-        Debug.Log(playerObject.velocity.magnitude);
+        //Debug.Log(playerObject.velocity.magnitude);
 
-        if (Input.GetKey(KeyCode.LeftShift) && isOnGround == true && playerObject.velocity.magnitude > 0.01f)
+        if (Input.GetKey(KeyCode.LeftShift) && isOnGround == true && playerObject.velocity.magnitude > 0.01f && staminaBar.value > 2)
         {
             StaminaBar.Instance.UseStamina(1); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
 
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
         //Check to see if the ground check is touching the ground
         isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 0.01f, whatIsGround);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true && staminaBar.value > 14)
         {
             StaminaBar.Instance.UseStamina(15); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
 

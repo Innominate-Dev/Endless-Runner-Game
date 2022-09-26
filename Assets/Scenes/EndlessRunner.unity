@@ -272,6 +272,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  staminaBar: {fileID: 621250943}
   jumpPower: 100
 --- !u!1 &515686389
 GameObject:
