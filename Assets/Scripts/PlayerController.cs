@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private float speed = 3.0f;
     private float boost = 6.0f;
     public float jumpPower = 8000.0f;
+
+    bool doubleJump = true;
     bool isOnGround = false;
 
     Rigidbody2D playerObject;
@@ -58,13 +60,18 @@ public class PlayerController : MonoBehaviour
             StaminaBar.Instance.UseStamina(15); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
 
             playerObject.AddForce(new Vector2(0.0f, 300.0f));
+            doubleJump = false;
 
-            //////////////////////////// DOUBLE JUMP MECHANIC ///////////////////////////
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space) && isOnGround == false)
-            {
-                playerObject.AddForce(new Vector2(200.0f, 300.0f));
-            }
+          //////////////////////////// DOUBLE JUMP MECHANIC ///////////////////////////
+
+        if (Input.GetKeyDown(KeyCode.Space) && playerObject.velocity.y > 0.01f && doubleJump == false)
+        {
+            playerObject.AddForce(new Vector2(0.0f, 300.0f));
+            Debug.Log("DOUBLE JUMPPPP");
+            StaminaBar.Instance.UseStamina(15);
+            doubleJump = true;
         }
     }
 
