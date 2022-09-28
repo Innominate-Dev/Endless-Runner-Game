@@ -8,18 +8,20 @@ public class Collectibles : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //THIS DESTROYS THE COINS
-        
-        if(other.gameObject.CompareTag("Coins"))
-        {
-            Destroy(other.gameObject);
-        }
+
 
         //THE CODE BELOW ADDS 1 SCORE TO THE COIN THAT THE PLAYER COLLECTS!
 
         if(other.gameObject.CompareTag("Player"))
         {
-            ScoreManager.Instance.ChangeScore(coinValue);
+            Debug.Log("AAAH");
+            GameObject.Find("ScoreManager").GetComponent<ScoreManager>().ChangeScore(coinValue);
+        }
+
+        //THIS DESTROYS THE COINS
+        if(other.gameObject.CompareTag("Coins"))
+        {
+            Destroy(other.gameObject);
         }
     }
 }
