@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance;
+    public static ScoreManager Instance;
     public TextMeshProUGUI text;
-    int score;
+    private int score;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(instance == null)
+        if(Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
+        Debug.Log("Script is running!");
     }
 
     public void ChangeScore(int coinValue)
     {
         score += coinValue;
-        text.text = score.ToString();
+        text.text = "x" + score.ToString();
+        Debug.Log("Coin Collected!");
     }
 }

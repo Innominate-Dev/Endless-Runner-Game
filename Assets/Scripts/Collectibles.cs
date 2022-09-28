@@ -19,7 +19,7 @@ public class Collectibles : MonoBehaviour
 
         if(other.gameObject.CompareTag("Player"))
         {
-            ScoreManager.instance.ChangeScore(coinValue);
+            ScoreManager.Instance.ChangeScore(coinValue);
         }
     }
 }
