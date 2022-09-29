@@ -38,6 +38,12 @@ public class StaminaBar : MonoBehaviour
         }
     }
 
+    public void GiveStamina (int amount)
+    {
+        currentStamina = currentStamina + amount;
+        staminaBar.value = currentStamina;
+        Debug.Log("Giving Stamina!");
+    }
     // Update is called once per frame
     void Update()
     {

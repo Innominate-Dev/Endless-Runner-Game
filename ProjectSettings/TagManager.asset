@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CleanUp
   - Coins
+  - Collectibles
   layers:
   - Default
   - TransparentFX
