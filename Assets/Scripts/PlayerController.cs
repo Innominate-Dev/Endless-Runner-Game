@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //////////////////////////////// MOVEMENT SYSTEM //////////////////////////////////
 
         //Create a 'float' that will be equal to the playeres horizontal input
@@ -74,5 +76,14 @@ public class PlayerController : MonoBehaviour
             doubleJump = true;
         }
     }
+    
+        /////// DEATH SCREEN ////////
+        private void OnTriggerEnter2D(Collider2D other) 
+        {
+            if(other.CompareTag("Death"))
+            {
+                SceneManager.LoadScene("Death Screen");
+            }
+        }
 
 }
