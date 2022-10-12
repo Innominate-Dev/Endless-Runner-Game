@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //////////////////////////////// MOVEMENT SYSTEM //////////////////////////////////
 
         //Create a 'float' that will be equal to the playeres horizontal input
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && isOnGround == true && playerObject.velocity.magnitude > 0.01f && staminaBar.value > 2)
         {
-            StaminaBar.Instance.UseStamina(0.1f); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
+            StaminaBar.Instance.UseStamina(1); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
 
             playerObject.AddForce(new Vector2(movementValueX * boost, playerObject.velocity.y));
         }
@@ -74,5 +76,14 @@ public class PlayerController : MonoBehaviour
             doubleJump = true;
         }
     }
+    
+        /////// DEATH SCREEN ////////
+        private void OnTriggerEnter2D(Collider2D other) 
+        {
+            if(other.CompareTag("Death"))
+            {
+                SceneManager.LoadScene("Death Screen");
+            }
+        }
 
 }

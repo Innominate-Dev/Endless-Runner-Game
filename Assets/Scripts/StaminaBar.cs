@@ -7,7 +7,7 @@ public class StaminaBar : MonoBehaviour
 {
     public Slider staminaBar;
 
-    private int MaxStamina = 1000;
+    private int MaxStamina = 10000;
     private int currentStamina;
     
     public static StaminaBar Instance;
