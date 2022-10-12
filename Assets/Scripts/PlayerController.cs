@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && isOnGround == true && playerObject.velocity.magnitude > 0.01f && staminaBar.value > 2)
         {
-            StaminaBar.Instance.UseStamina(1); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
+            StaminaBar.Instance.UseStamina(0.1f); // DEDUCTS STAMINA FROM PLAYER TO REDUCE SPAMMING
 
             playerObject.AddForce(new Vector2(movementValueX * boost, playerObject.velocity.y));
         }
