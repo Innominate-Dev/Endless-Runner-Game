@@ -9,10 +9,10 @@ public class ScoreSystem : MonoBehaviour
     //////////////////// SCORE SYSTEM //////////////////////
 
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI hiScoreText;
+    // public TextMeshProUGUI hiScoreText;
 
     public float scoreCount; 
-    public float hiScoreCount;
+    // public float hiScoreCount;
 
     public float pointsPerSecond;
     public bool scoreIncreasing;
@@ -24,12 +24,12 @@ public class ScoreSystem : MonoBehaviour
             scoreCount += pointsPerSecond * Time.deltaTime;
         }
 
-        if(scoreCount > hiScoreCount)
-        {
-            hiScoreCount = scoreCount;
-        }
+        // if(scoreCount > hiScoreCount)
+        // {
+        //     hiScoreCount = scoreCount;
+        // }
 
         scoreText.text = "Score: " + Mathf.Round (scoreCount);
-        hiScoreText.text = "High Score: " + Mathf.Round(hiScoreCount);
+        // hiScoreText.text = "High Score: " + Mathf.Round(hiScoreCount);
     }
 }

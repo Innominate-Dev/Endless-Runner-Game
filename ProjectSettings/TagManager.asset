@@ -8,6 +8,7 @@ TagManager:
   - Coins
   - Collectibles
   - Death
+  - Score
   layers:
   - Default
   - TransparentFX

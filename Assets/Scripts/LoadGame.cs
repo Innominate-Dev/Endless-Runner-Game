@@ -7,7 +7,7 @@ public class LoadGame : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); //Will load the next build scene whichw e set by going into build and set a hieracrcy for scenes e.g main Menu is lvl 0 which means its the first thing the player sees.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3); //Will load the next build scene whichw e set by going into build and set a hieracrcy for scenes e.g main Menu is lvl 0 which means its the first thing the player sees.
     }
 
     public void QuitGame()
@@ -25,5 +25,10 @@ public class LoadGame : MonoBehaviour
     public void ReturnToHomeScreen()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void Options()
+    {
+        SceneManager.LoadScene("Options");
     }
 }

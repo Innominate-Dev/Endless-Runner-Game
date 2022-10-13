@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     bool doubleJump = true;
     bool isOnGround = false;
 
-    private ScoreSystem theScoreSystem; ///////////// SCORE SYSTEM NOT COIN!!! //////////////
-
     Rigidbody2D playerObject;
 
     // Start is called before the first frame update
@@ -28,7 +26,6 @@ public class PlayerController : MonoBehaviour
         //Find the Rigidbody2D component that is attached to the same object as this script
         playerObject = GetComponent<Rigidbody2D>();
 
-        theScoreSystem = FindObjectOfType<ScoreSystem>();
     }
 
     // Update is called once per frame
@@ -86,8 +83,6 @@ public class PlayerController : MonoBehaviour
         {
             if(other.CompareTag("Death"))
             {
-                theScoreSystem.scoreIncreasing = false; ///////// SCORE SYSTEM ///////
-
                 SceneManager.LoadScene("Death Screen");
             }
         }
