@@ -33,7 +33,7 @@ public class Collectibles : MonoBehaviour
         {
             if(gameObject.tag == "Collectibles")
             {
-                StaminaBar.Instance.GiveStamina(10);
+                StaminaBar.Instance.GiveStamina(1000);
             }
         }
 
